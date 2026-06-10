@@ -1,0 +1,17 @@
+.DS_Store
+Thumbs.db
+
+.vscode/
+.idea/
+
+*.log
+
+.env
+.env.*
+
+node_modules/
+dist/
+build/
+
+data/tiles/kl_1893/*
+!data/tiles/kl_1893/.gitkeep
