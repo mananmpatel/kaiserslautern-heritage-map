@@ -1,0 +1,17 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Kaiserslautern City Centre",
+        "category": "Orientation point",
+        "description": "Initial test marker for the Kaiserslautern heritage map."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [7.7491, 49.4401]
+      }
+    }
+  ]
+}
