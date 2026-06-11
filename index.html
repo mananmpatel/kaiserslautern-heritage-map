@@ -8,13 +8,49 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header>
-    <h1>Kaiserslautern Heritage Map</h1>
-  </header>
+  <aside class="sidebar">
+    <h1>Interactive Industrial Heritage and Urban History Map of Kaiserslautern</h1>
 
-  <main>
-    <div id="map"></div>
-  </main>
+    <p class="intro">
+      Explore former industrial sites, workers' settlements, cultural landmarks, historical areas, and a suggested walking route through Kaiserslautern.
+    </p>
+
+    <section>
+      <h2>POI Filters</h2>
+
+      <label>
+        <input type="checkbox" class="category-filter" value="former_industrial_site" checked>
+        Former industrial sites
+      </label>
+
+      <label>
+        <input type="checkbox" class="category-filter" value="workers_settlement" checked>
+        Workers' settlements
+      </label>
+
+      <label>
+        <input type="checkbox" class="category-filter" value="cultural_site" checked>
+        Cultural sites
+      </label>
+
+      <label>
+        <input type="checkbox" class="category-filter" value="historical_landmark" checked>
+        Historical landmarks
+      </label>
+
+      <label>
+        <input type="checkbox" class="category-filter" value="urban_development_site" checked>
+        Urban development sites
+      </label>
+
+      <label>
+        <input type="checkbox" class="category-filter" value="public_space" checked>
+        Public spaces
+      </label>
+    </section>
+  </aside>
+
+  <main id="map"></main>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="js/main.js"></script>
