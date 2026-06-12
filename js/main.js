@@ -1,4 +1,10 @@
-const map = L.map("map").setView([49.4401, 7.7491], 13);
+const map = L.map("map", {
+  zoomControl: false
+}).setView([49.443, 7.768], 14);
+
+L.control.zoom({
+  position: "topright"
+}).addTo(map);
 
 const poi_colors = {
   former_industrial_site: "#3f3f46",
