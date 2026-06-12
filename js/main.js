@@ -21,6 +21,23 @@ const osm_layer = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", 
 }).addTo(map);
 
 const poi_layer_group = L.layerGroup().addTo(map);
+const factory_layer_group = L.layerGroup().addTo(map);
+const workers_layer_group = L.layerGroup().addTo(map);
+
+const base_layers = {
+  "OpenStreetMap": osm_layer
+};
+
+const overlay_layers = {
+  "POIs": poi_layer_group,
+  "Factory sites": factory_layer_group,
+  "Workers' settlements": workers_layer_group
+};
+
+L.control.layers(base_layers, overlay_layers, {
+  collapsed: false,
+  position: "topright"
+}).addTo(map);
 
 function getPoiIcon(category) {
   const color = poi_colors[category] || "#111827";
@@ -34,13 +51,22 @@ function getPoiIcon(category) {
 }
 
 function createPopup(properties) {
+  const period_html = properties.historical_period ? `<p><strong>Period:</strong> ${properties.historical_period}</p>` : "";
+  const relevance_html = properties.historical_relevance ? `<p><strong>Historical relevance:</strong> ${properties.historical_relevance}</p>` : "";
+  // const category_html = properties.category ? `<p style = "display:none"><strong>Area type:</strong> ${properties.category}</p>` : "";
+  // const current_use_html = properties.current_use ? `<p style = "display:none"><strong>Current use:</strong> ${properties.current_use}</p>` : "";
+  const source_html = properties.source ? `<p><a href="${properties.source}" target="_blank" rel="noopener">Source</a></p>` : "";
+
+  // ${category_html}
+  // ${current_use_html}
+
   return `
     <article class="popup-card">
       <h3>${properties.name}</h3>
       <p>${properties.description || ""}</p>
-      <p><strong>Period:</strong> ${properties.historical_period || ""}</p>
-      <p><strong>Historical relevance:</strong> ${properties.historical_relevance || ""}</p>
-      <p><a href="${properties.source}" target="_blank" rel="noopener">Source</a></p>
+      ${period_html}
+      ${relevance_html}
+      ${source_html}
     </article>
   `;
 }
@@ -72,6 +98,20 @@ async function loadPois(active_categories = null) {
   }).addTo(poi_layer_group);
 }
 
+async function loadPolygonLayer(file_path, target_group, style_options) {
+  const response = await fetch(file_path);
+  const data = await response.json();
+
+  target_group.clearLayers();
+
+  L.geoJSON(data, {
+    style: style_options,
+    onEachFeature: (feature, layer) => {
+      layer.bindPopup(createPopup(feature.properties));
+    }
+  }).addTo(target_group);
+}
+
 function getActiveCategories() {
   return Array.from(document.querySelectorAll(".category-filter:checked")).map((checkbox) => checkbox.value);
 }
@@ -83,3 +123,18 @@ document.querySelectorAll(".category-filter").forEach((input) => {
 });
 
 loadPois(getActiveCategories());
+
+loadPolygonLayer("data/factory_sites.geojson", factory_layer_group, {
+  color: "#27272a",
+  weight: 2,
+  fillColor: "#3f3f46",
+  fillOpacity: 0.35
+});
+
+loadPolygonLayer("data/workers_settlements.geojson", workers_layer_group, {
+  color: "#8b5e34",
+  weight: 2,
+  dashArray: "6 6",
+  fillColor: "#d6b48c",
+  fillOpacity: 0.45
+});
