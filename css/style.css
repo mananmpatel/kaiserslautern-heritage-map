@@ -77,6 +77,39 @@ main {
   flex-shrink: 0;
 }
 
+.category-swatch {
+  width: 14px;
+  height: 14px;
+  border: 2px solid white;
+  border-radius: 50%;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
+}
+
+.category-former-industrial-site {
+  background: #3f3f46;
+}
+
+.category-workers-settlement {
+  background: #8b5e34;
+}
+
+.category-cultural-site {
+  background: #7e22ce;
+}
+
+.category-historical-landmark {
+  background: #2563eb;
+}
+
+.category-urban-development-site {
+  background: #f97316;
+}
+
+.category-public-space {
+  background: #16a34a;
+}
+
 #map {
   flex: 1;
   height: 100vh;
