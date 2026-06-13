@@ -110,6 +110,20 @@ main {
   background: #16a34a;
 }
 
+.opacity-control {
+  align-items: stretch;
+  flex-direction: column;
+}
+
+.opacity-control span {
+  font-size: 14px;
+  color: #4b5563;
+}
+
+.opacity-control input {
+  width: 100%;
+}
+
 #map {
   flex: 1;
   height: 100vh;
