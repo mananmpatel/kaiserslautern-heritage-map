@@ -20,6 +20,20 @@ const osm_layer = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", 
   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
+const historical_map_bounds = [
+  [49.134048, 6.761787],
+  [49.536399, 7.990851]
+];
+
+// const historical_map_bounds = [
+//   [49.144048, 6.721787],
+//   [49.546399, 7.950851]
+// ];
+
+const historical_map_layer = L.imageOverlay("assets/historical/kaiserslautern_1893_original.jpg", historical_map_bounds, {
+  opacity: 0.65
+}).addTo(map);
+
 const poi_layer_group = L.layerGroup().addTo(map);
 const factory_layer_group = L.layerGroup().addTo(map);
 const workers_layer_group = L.layerGroup().addTo(map);
@@ -29,6 +43,7 @@ const base_layers = {
 };
 
 const overlay_layers = {
+  "Kaiserslautern 1893 map": historical_map_layer,
   "POIs": poi_layer_group,
   "Factory sites": factory_layer_group,
   "Workers' settlements": workers_layer_group
@@ -121,6 +136,14 @@ document.querySelectorAll(".category-filter").forEach((input) => {
     loadPois(getActiveCategories());
   });
 });
+
+const historical_opacity_input = document.querySelector("#historical-opacity");
+
+if (historical_opacity_input) {
+  historical_opacity_input.addEventListener("input", () => {
+    historical_map_layer.setOpacity(Number(historical_opacity_input.value));
+  });
+}
 
 loadPois(getActiveCategories());
 
