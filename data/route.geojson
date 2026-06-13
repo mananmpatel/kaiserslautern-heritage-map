@@ -1,0 +1,43 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Suggested Industrial Heritage Walk",
+        "description": "Temporary walking route connecting selected industrial heritage, urban history, and cultural sites in Kaiserslautern.",
+        "estimated_distance": "5.5 km",
+        "estimated_walking_time": "70-85 minutes",
+        "main_stops": [
+          "Kaiserslautern Hauptbahnhof",
+          "Stadtpark",
+          "Former PFAFF Industrial Site",
+          "Pfaff-Quartier",
+          "Karl-Pfaff-Siedlung",
+          "Fruchthalle",
+          "Stiftskirche and Old Town Area",
+          "Kaiserpfalz and Casimir Castle Area",
+          "Theodor-Zink-Museum",
+          "Japanese Garden",
+          "Kammgarn Cultural Center"
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [7.7684, 49.4366],
+          [7.7629, 49.4395],
+          [7.75064, 49.4368],
+          [7.7512, 49.4372],
+          [7.74362, 49.43397],
+          [7.76997, 49.44572],
+          [7.7709, 49.4458],
+          [7.7688, 49.4465],
+          [7.7734, 49.4462],
+          [7.7665, 49.448],
+          [7.7598, 49.4497]
+        ]
+      }
+    }
+  ]
+}
