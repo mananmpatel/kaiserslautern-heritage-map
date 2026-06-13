@@ -3,6 +3,10 @@ body {
   height: 100%;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -42,6 +46,7 @@ main {
   box-shadow: 4px 0 20px rgba(0, 0, 0, 0.08);
   flex-shrink: 0;
   z-index: 1000;
+  padding-bottom: 48px;
 }
 
 .sidebar label {
@@ -122,6 +127,44 @@ main {
 
 .opacity-control input {
   width: 100%;
+}
+
+.route-summary p {
+  margin: 0 0 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #4b5563;
+}
+
+.route-summary dl {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin: 0 0 16px;
+}
+
+.route-summary dt {
+  margin-bottom: 3px;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.route-summary dd {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.route-summary h3 {
+  margin: 14px 0 8px;
+  font-size: 15px;
+}
+
+.route-summary ol {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 #map {
