@@ -37,6 +37,7 @@ const historical_map_layer = L.imageOverlay("assets/historical/kaiserslautern_18
 const poi_layer_group = L.layerGroup().addTo(map);
 const factory_layer_group = L.layerGroup().addTo(map);
 const workers_layer_group = L.layerGroup().addTo(map);
+const route_layer_group = L.layerGroup().addTo(map);
 
 const base_layers = {
   "OpenStreetMap": osm_layer
@@ -46,7 +47,8 @@ const overlay_layers = {
   "Kaiserslautern 1893 map": historical_map_layer,
   "POIs": poi_layer_group,
   "Factory sites": factory_layer_group,
-  "Workers' settlements": workers_layer_group
+  "Workers' settlements": workers_layer_group,
+  "Suggested walking route": route_layer_group
 };
 
 L.control.layers(base_layers, overlay_layers, {
@@ -68,6 +70,9 @@ function getPoiIcon(category) {
 function createPopup(properties) {
   const period_html = properties.historical_period ? `<p><strong>Period:</strong> ${properties.historical_period}</p>` : "";
   const relevance_html = properties.historical_relevance ? `<p><strong>Historical relevance:</strong> ${properties.historical_relevance}</p>` : "";
+  const distance_html = properties.estimated_distance ? `<p><strong>Estimated distance:</strong> ${properties.estimated_distance}</p>` : "";
+  const walking_time_html = properties.estimated_walking_time ? `<p><strong>Estimated walking time:</strong> ${properties.estimated_walking_time}</p>` : "";
+  const stops_html = properties.main_stops ? `<p><strong>Main stops:</strong> ${properties.main_stops.join(", ")}</p>` : "";
   // const category_html = properties.category ? `<p style = "display:none"><strong>Area type:</strong> ${properties.category}</p>` : "";
   // const current_use_html = properties.current_use ? `<p style = "display:none"><strong>Current use:</strong> ${properties.current_use}</p>` : "";
   const source_html = properties.source ? `<p><a href="${properties.source}" target="_blank" rel="noopener">Source</a></p>` : "";
@@ -81,6 +86,9 @@ function createPopup(properties) {
       <p>${properties.description || ""}</p>
       ${period_html}
       ${relevance_html}
+      ${distance_html}
+      ${walking_time_html}
+      ${stops_html}
       ${source_html}
     </article>
   `;
@@ -127,6 +135,25 @@ async function loadPolygonLayer(file_path, target_group, style_options) {
   }).addTo(target_group);
 }
 
+async function loadRoute() {
+  const response = await fetch("data/route.geojson");
+  const data = await response.json();
+
+  route_layer_group.clearLayers();
+
+  L.geoJSON(data, {
+    style: {
+      color: "#dc2626",
+      weight: 5,
+      opacity: 0.9,
+      dashArray: "8 8"
+    },
+    onEachFeature: (feature, layer) => {
+      layer.bindPopup(createPopup(feature.properties));
+    }
+  }).addTo(route_layer_group);
+}
+
 function getActiveCategories() {
   return Array.from(document.querySelectorAll(".category-filter:checked")).map((checkbox) => checkbox.value);
 }
@@ -161,3 +188,5 @@ loadPolygonLayer("data/workers_settlements.geojson", workers_layer_group, {
   fillColor: "#d6b48c",
   fillOpacity: 0.45
 });
+
+loadRoute();
