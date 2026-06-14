@@ -6,7 +6,7 @@ const data_paths = {
   factory_sites: "data/factory_sites.geojson",
   workers_settlements: "data/workers_settlements.geojson",
   route: "data/route.geojson",
-  historical_map: "assets/historical/kaiserslautern_1893_original.jpg"
+  historical_map: "assets/historical/kaiserslautern_1893_compressed.jpg"
 };
 
 const poi_colors = {
@@ -18,15 +18,15 @@ const poi_colors = {
   public_space: "#16a34a"
 };
 
-const historical_map_bounds = [
-  [49.134048, 6.761787],
-  [49.536399, 7.990851]
-];
-
 // const historical_map_bounds = [
-//   [49.144048, 6.721787],
-//   [49.546399, 7.950851]
+//   [49.134048, 6.761787],
+//   [49.536399, 7.990851]
 // ];
+
+const historical_map_bounds = [
+  [49.144048, 6.721787],
+  [49.546399, 7.950851]
+];
 
 const factory_style = {
   color: "#27272a",
