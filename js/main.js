@@ -2,6 +2,8 @@ initCategoryFilters();
 
 initHistoricalOpacityControl();
 
+initLayerInfoSections();
+
 loadPois(getActiveCategories());
 
 loadPolygonLayer(data_paths.factory_sites, factory_layer_group, factory_style);

@@ -21,3 +21,34 @@ function initHistoricalOpacityControl() {
     historical_map_layer.setOpacity(Number(historical_opacity_input.value));
   });
 }
+
+function toggleLayerInfoSection(section_id, is_visible) {
+    const section = document.getElementById(section_id);
+
+    if (!section) {
+        return;
+    }
+
+    section.classList.toggle("is-hidden", !is_visible);
+}
+
+function syncLayerInfoSection() {
+    toggleLayerInfoSection("historical-map-section", map.hasLayer(historical_map_layer));
+    toggleLayerInfoSection("route-section", map.hasLayer(route_layer_group));
+}
+
+function initLayerInfoSections() {
+    syncLayerInfoSection();
+
+    map.on("overlayadd", (event) => {
+        if (event.layer === historical_map_layer || event.layer === route_layer_group) {
+            syncLayerInfoSection();
+        }
+    });
+
+    map.on("overlayremove", (event) => {
+        if (event.layer === historical_map_layer || event.layer === route_layer_group) {
+            syncLayerInfoSection();
+        }
+    });
+}
