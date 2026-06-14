@@ -13,12 +13,12 @@ const osm_layer = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", 
 
 const historical_map_layer = L.imageOverlay(data_paths.historical_map, historical_map_bounds, {
   opacity: 0.65
-}).addTo(map);
+});
 
 const poi_layer_group = L.layerGroup().addTo(map);
 const factory_layer_group = L.layerGroup().addTo(map);
 const workers_layer_group = L.layerGroup().addTo(map);
-const route_layer_group = L.layerGroup().addTo(map);
+const route_layer_group = L.layerGroup();
 
 const base_layers = {
   "OpenStreetMap": osm_layer
