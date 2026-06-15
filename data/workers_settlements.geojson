@@ -1,28 +1,7 @@
 {
-  "type": "FeatureCollection",
-  "features": [
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "Karl-Pfaff-Siedlung",
-        "category": "workers_settlement_area",
-        "description": "Approximate area of the workers' settlement connected to the PFAFF sewing machine company.",
-        "historical_relevance": "Represents the housing and social history of industrial workers in Kaiserslautern.",
-        "historical_period": "1950s",
-        "source": "https://de.wikipedia.org/wiki/Karl-Pfaff-Siedlung"
-      },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [7.7418, 49.4328],
-            [7.7455, 49.4329],
-            [7.7460, 49.4351],
-            [7.7420, 49.4353],
-            [7.7418, 49.4328]
-          ]
-        ]
-      }
-    }
-  ]
+"type": "FeatureCollection",
+"name": "workers_settlements",
+"features": [
+{"type":"Feature","properties":{"name":"Karl-Pfaff-Siedlung","category":"workers_settlement_area","description":"Approximate area of the workers' settlement connected to the PFAFF sewing machine company.","historical_relevance":"Represents the housing and social history of industrial workers in Kaiserslautern.","historical_period":"1950s","source":"https://de.wikipedia.org/wiki/Karl-Pfaff-Siedlung"},"geometry":{"type":"Polygon","coordinates":[[[7.7418,49.4328],[7.744023262585516,49.432923507582636],[7.743785391358589,49.433942955698043],[7.745688361174008,49.434648073977861],[7.746937185115378,49.435013376219217],[7.74614711282594,49.435684512895186],[7.744499005039372,49.43553159567788],[7.742876383455688,49.434945413011519],[7.741075358451809,49.43399392810381],[7.7418,49.4328]]]}}
+]
 }

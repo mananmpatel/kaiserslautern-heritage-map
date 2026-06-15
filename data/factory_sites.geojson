@@ -1,53 +1,8 @@
 {
-  "type": "FeatureCollection",
-  "features": [
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "Former PFAFF Industrial Site",
-        "category": "factory_site",
-        "description": "Approximate area of the former PFAFF industrial site in western Kaiserslautern.",
-        "historical_relevance": "Represents one of the most important industrial production areas in Kaiserslautern and the later transformation into the Pfaff-Quartier.",
-        "historical_period": "Late 19th century to 20th century",
-        "current_use": "Urban redevelopment as Pfaff-Quartier",
-        "source": "https://www.pfaff-quartier.de/"
-      },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [7.7478, 49.4356],
-            [7.7528, 49.4358],
-            [7.7533, 49.4384],
-            [7.7485, 49.4388],
-            [7.7478, 49.4356]
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "Kammgarn Former Factory Area",
-        "category": "factory_site",
-        "description": "Approximate area of the former spinning factory now used as the Kammgarn cultural center.",
-        "historical_relevance": "Shows the reuse of former industrial architecture as a cultural venue.",
-        "historical_period": "Industrial period to present cultural reuse",
-        "current_use": "Cultural venue",
-        "source": "https://www.kaiserslautern.de/tourismus_freizeit_kultur/tourismus/tagungen_und_kongresse/special_locations/020747/index.html.en"
-      },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [7.7581, 49.4489],
-            [7.7610, 49.4491],
-            [7.7612, 49.4504],
-            [7.7583, 49.4507],
-            [7.7581, 49.4489]
-          ]
-        ]
-      }
-    }
-  ]
+"type": "FeatureCollection",
+"name": "factory_sites",
+"features": [
+{"type":"Feature","properties":{"name":"Former PFAFF Industrial Site","category":"factory_site","description":"Approximate area of the former PFAFF industrial site in western Kaiserslautern.","historical_relevance":"Represents one of the most important industrial production areas in Kaiserslautern and the later transformation into the Pfaff-Quartier.","historical_period":"Late 19th century to 20th century","current_use":"Urban redevelopment as Pfaff-Quartier","source":"https://www.pfaff-quartier.de/"},"geometry":{"type":"Polygon","coordinates":[[[7.745900746198052,49.436563786894723],[7.748789182525027,49.435552834180278],[7.752425214136633,49.434652321678342],[7.755381613671302,49.437132978759152],[7.754234734541473,49.438160922275522],[7.754047835720316,49.438177913077446],[7.753036883005874,49.438908517560151],[7.750199419084669,49.437532262604357],[7.749086521558686,49.43740483158993],[7.747829202216356,49.436946079937997],[7.745900746198052,49.436563786894723]]]}},
+{"type":"Feature","properties":{"name":"Kammgarn Former Factory Area","category":"factory_site","description":"Approximate area of the former spinning factory now used as the Kammgarn cultural center.","historical_relevance":"Shows the reuse of former industrial architecture as a cultural venue.","historical_period":"Industrial period to present cultural reuse","current_use":"Cultural venue","source":"https://www.kaiserslautern.de/tourismus_freizeit_kultur/tourismus/tagungen_und_kongresse/special_locations/020747/index.html.en"},"geometry":{"type":"Polygon","coordinates":[[[7.755712934308807,49.44730622141077],[7.756511501999206,49.447153304193463],[7.756536988202091,49.44758656964251],[7.755746915912654,49.447603560444435],[7.755712934308807,49.44730622141077]]]}}
+]
 }
